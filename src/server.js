@@ -9,9 +9,14 @@ const formROutes = require("./routes/form.route");
 const app = express();
 
 app.use(express.json());
-app.use(cors());
 dotenv.config();
 app.use(bodyParser.json());
+
+app.use(cors({
+    origin: 'https://papercloud-form-frontend.vercel.app/',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 const PORT = process.env.PORT || 8000;
 
