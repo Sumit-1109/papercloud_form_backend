@@ -12,11 +12,13 @@ app.use(express.json());
 dotenv.config();
 app.use(bodyParser.json());
 
-app.use(cors({
-    origin: 'https://papercloud-form-frontend.vercel.app/',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+app.use(
+  cors({
+    origin: "https://papercloud-form-frontend.vercel.app",
+    credentials: true, 
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 
 const PORT = process.env.PORT || 8000;
 
